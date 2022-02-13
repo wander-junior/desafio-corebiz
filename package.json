@@ -1,0 +1,11 @@
+{
+  "name": "desafio-corebiz",
+  "version": "1.0.0",
+  "description": "Desafio da vaga front end da CoreBiz",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
