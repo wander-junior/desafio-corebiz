@@ -4,11 +4,13 @@ import React from "react";
 import GlobalStyle from "./globalStyles";
 import Theme from "./Theme";
 
+import Header from "./components/Header";
+
 const App = () => {
     return (
         <Theme>
             <GlobalStyle />
-            <h1>Desafio CoreBiz</h1>
+            <Header />
         </Theme>
     );
 }
