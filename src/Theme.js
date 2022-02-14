@@ -9,7 +9,9 @@ const theme = {
     lightGray: '#F2F2F2'
   },
   fonts: ["'Nunito', sans-serif", "'Lato', sans-serif"],
-  mediaBreakPoints: [1252]
+  mediaBreakPoints: {
+    desktop: '1252px'
+  }
 };
 
 const Theme = ({ children }) => (
