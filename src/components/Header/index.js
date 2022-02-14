@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from "react-router-dom";
 
 import { HeaderWrapper, LogoHeader, SearchForm, SearchBar, SearchButton, UserAccount, MiniCart, ItemQuantity, MobileMenu } from './styles';
@@ -9,7 +9,11 @@ import shoppingCart from '../../assets/img/shoppingCart.svg'
 import searchIcon from '../../assets/img/searchIcon.svg'
 import mobileMenuIcon from '../../assets/img/mobileMenuIcon.svg'
 
+import QuantityContext from '../../contexts/QuantityContext';
+
 export default function Header() {
+    const [totalItems, _] = useContext(QuantityContext);
+
     const handleSubmit = ((event) => event.preventDefault());
 
     return (
@@ -32,7 +36,7 @@ export default function Header() {
             </UserAccount>
             <MiniCart>
                 <img src={shoppingCart} alt="user" />
-                <ItemQuantity>0</ItemQuantity>
+                <ItemQuantity>{totalItems}</ItemQuantity>
             </MiniCart>
         </HeaderWrapper>
     )
