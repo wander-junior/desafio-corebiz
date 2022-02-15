@@ -3,6 +3,8 @@ import axios from 'axios';
 
 import { ShelfWrapper, ShelfTitle } from './styles';
 
+import Card from '../Card';
+
 export default function Shelf() {
     const [productList, setProductList] = useState([])
 
@@ -21,7 +23,7 @@ export default function Shelf() {
         <ShelfWrapper>
             <ShelfTitle>Mais vendidos</ShelfTitle>
             {productList.map(product => {
-                return <div>{product.productName}</div>
+                return <Card product={product} />
             })}
         </ShelfWrapper>
     )
