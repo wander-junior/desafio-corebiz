@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
+import { ShelfWrapper, ShelfTitle } from './styles';
+
 export default function Shelf() {
     const [productList, setProductList] = useState([])
 
@@ -16,10 +18,11 @@ export default function Shelf() {
     }, [])
 
     return (
-        <div>
+        <ShelfWrapper>
+            <ShelfTitle>Mais vendidos</ShelfTitle>
             {productList.map(product => {
                 return <div>{product.productName}</div>
             })}
-        </div>
+        </ShelfWrapper>
     )
 }
