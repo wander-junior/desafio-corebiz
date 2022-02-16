@@ -1,26 +1,61 @@
-import React from 'react'
+import React from 'react';
+
+import { CardWrapper, ProductInfo, ProductTitle, StarsWrapper, FormerPrice, CurrentPrice, InstallmentsOptions, BuyButton, OffFlag, OffLabel } from './styles';
+
+import filledStarIcon from '../../assets/img/filledStarIcon.svg'
+import emptyStarIcon from '../../assets/img/emptyStarIcon.svg'
+
+import { priceFormatter } from '../../utils/priceFormatter';
 
 export default function Card({product}) {
     const { productName, stars, imageUrl, price, listPrice, installments } = product;
-    console.log(product);
 
     return (
-        <div>
+        <CardWrapper>
+            {
+                listPrice !== null ?
+                    <>
+                        <OffFlag />
+                        <OffLabel>
+                            OFF
+                        </OffLabel>
+                    </>
+                : ""
+            }
             <img src={imageUrl} alt={productName}/>
-            {productName}
-            {stars}
-            {listPrice !== null ? 
-                <div>
-                    De {listPrice}
-                </div> 
-            : ""}
-            <div>por R$ {price}</div>
-            {installments.length > 0 ? 
-                <div>
-                    ou em {installments[0].quantity} de R$ {installments[0].value}
-                </div>
-            : ""}
-            <button>COMPRAR</button>
-        </div>
+            <ProductInfo>
+                <ProductTitle>{productName}</ProductTitle>
+                <StarsWrapper>
+                    {
+                        [...Array(stars)].map(() => {
+                            return <img src={filledStarIcon}/>
+                        })
+                    }
+                    {
+                        (5 - stars) > 0 ?
+                            [...Array(5 - stars)].map(() => {
+                                return <img src={emptyStarIcon}/>
+                            })
+                        : ""
+                    }
+                </StarsWrapper>
+                {listPrice !== null ? 
+                    <FormerPrice>
+                        De {priceFormatter(listPrice)}
+                    </FormerPrice> 
+                : 
+                    <FormerPrice invisible>
+                        -
+                    </FormerPrice>
+                }
+                <CurrentPrice>por {priceFormatter(price)}</CurrentPrice>
+                {installments.length > 0 ? 
+                    <InstallmentsOptions>
+                        ou em {installments[0].quantity} de {priceFormatter(installments[0].value)}
+                    </InstallmentsOptions>
+                : ""}
+                <BuyButton>COMPRAR</BuyButton>
+            </ProductInfo>
+        </CardWrapper>
     )
 }
