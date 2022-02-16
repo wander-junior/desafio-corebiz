@@ -42,5 +42,19 @@ export const NewsInput = styled.input`
     ::-ms-input-placeholder {
         color: #585858;
     }
+`;
 
+export const InputWrapper = styled.div`
+    position: relative;
+    ${props => !props.isValid ? `
+        &:after {
+            content: "${props.warningMessage}";
+            position: absolute;
+            top: 60px;
+            left: 0;
+            color: #D7182A;
+            font-size: 0.75rem;
+            font-family: 'Lato', sans-serif;
+        }
+    ` : ""}
 `;

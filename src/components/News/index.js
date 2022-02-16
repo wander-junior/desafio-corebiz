@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { NewsWrapper, NewsTitle, NewsForm, NewsInput } from './styles';
+import { NewsWrapper, NewsTitle, NewsForm, NewsInput, InputWrapper } from './styles';
 
 import Button from '../Button'
 
@@ -9,6 +9,9 @@ export default function News() {
     const [isNameValid, setIsNameValid] = useState(true);
     const [email, setEmail] = useState("");
     const [isEmailValid, setIsEmailValid] = useState(true);
+    
+    const warningNameMessage = "Preencha com seu nome completo";
+    const warningEmailMessage = "Preencha com um e-mail válido";
 
     const handleNameChange = ((event) => {
         setName(event.target.value);
@@ -34,8 +37,24 @@ export default function News() {
         <NewsWrapper>
             <NewsTitle>Participe de nossas news com promoções e novidades!</NewsTitle>
             <NewsForm onSubmit={handleSubmit}>
-                <NewsInput type="text" placeholder="Digite seu nome" value={name} onChange={handleNameChange} isValid={isNameValid}/>
-                <NewsInput type="text" placeholder="Digite seu email" value={email} onChange={handleEmailChange} isValid={isEmailValid}/>
+                <InputWrapper isValid={isNameValid} warningMessage={warningNameMessage}>
+                    <NewsInput 
+                        type="text" 
+                        placeholder="Digite seu nome" 
+                        value={name} 
+                        onChange={handleNameChange}
+                        isValid={isNameValid}
+                    />
+                </InputWrapper>
+                <InputWrapper isValid={isEmailValid} warningMessage={warningEmailMessage}>
+                    <NewsInput 
+                        type="text"
+                        placeholder="Digite seu email" 
+                        value={email} 
+                        onChange={handleEmailChange} 
+                        isValid={isEmailValid}
+                    />
+                </InputWrapper>
                 <Button label={"Eu quero!"} />
             </NewsForm>
         </NewsWrapper>
