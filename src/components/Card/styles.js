@@ -31,6 +31,7 @@ export const BuyButton = styled.button`
 `;
 
 export const CardWrapper = styled.div`
+    margin: 0 auto;
     max-width: 216px;
     position: relative;
     &:hover {
@@ -56,8 +57,9 @@ export const ProductTitle = styled.h3`
 `;
 
 export const StarsWrapper = styled.div`
+    display: flex;
     text-align: center;
-    margin: 8px 0;
+    margin: 8px auto;
 `;
 
 export const FormerPrice = styled.p`

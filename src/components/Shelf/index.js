@@ -1,12 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Slider from "react-slick";
 
-import { ShelfWrapper, ShelfTitle } from './styles';
+import { ShelfWrapper, ShelfTitle, LeftArrow, RightArrow } from './styles';
 
 import Card from '../Card';
 
 export default function Shelf() {
-    const [productList, setProductList] = useState([])
+    const sliderSettings = {
+        dots: false,
+        infinite: false,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        nextArrow: <RightArrow />,
+        prevArrow: <LeftArrow />
+    };
+  
+    const [productList, setProductList] = useState([]);
 
     useEffect(() => {
         axios({
@@ -22,9 +33,11 @@ export default function Shelf() {
     return (
         <ShelfWrapper>
             <ShelfTitle>Mais vendidos</ShelfTitle>
-            {productList.map(product => {
-                return <Card product={product} key={product.productId}/>
-            })}
+            <Slider {...sliderSettings}>
+                {productList.map(product => {
+                    return <Card product={product} key={product.productId}/>
+                })}
+            </Slider>
         </ShelfWrapper>
     )
 }
