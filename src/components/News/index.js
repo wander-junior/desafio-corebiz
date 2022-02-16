@@ -1,14 +1,18 @@
-import React from 'react'
+import React from 'react';
+
+import { NewsWrapper, NewsTitle, NewsForm, NewsInput } from './styles';
+
+import Button from '../Button'
 
 export default function News() {
   return (
-    <section>
-        <h3>Participe de nossas news com promoções e novidades!</h3>
-        <form>
-            <input type="text" />
-            <input type="email" />
-            <button>Eu quero</button>
-        </form>
-    </section>
+    <NewsWrapper>
+        <NewsTitle>Participe de nossas news com promoções e novidades!</NewsTitle>
+        <NewsForm>
+            <NewsInput type="text" placeholder="Digite seu nome" />
+            <NewsInput type="email" placeholder="Digite seu email" />
+            <Button label={"Eu quero!"} />
+        </NewsForm>
+    </NewsWrapper>
   )
 }
