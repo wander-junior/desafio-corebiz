@@ -24,7 +24,7 @@ export const NewsForm = styled.form`
 export const NewsInput = styled.input`
     padding: 17px 16px;
     outline: none;
-    border: none;
+    border: ${props => props.isValid ? "none" : "1px solid #D7182A"};
     border-radius: 5px;
     font-weight: bold;
     font-family: 'Lato', sans-serif;
@@ -42,4 +42,19 @@ export const NewsInput = styled.input`
     ::-ms-input-placeholder {
         color: #585858;
     }
+`;
+
+export const InputWrapper = styled.div`
+    position: relative;
+    ${props => !props.isValid ? `
+        &:after {
+            content: "${props.warningMessage}";
+            position: absolute;
+            top: 60px;
+            left: 0;
+            color: #D7182A;
+            font-size: 0.75rem;
+            font-family: 'Lato', sans-serif;
+        }
+    ` : ""}
 `;
