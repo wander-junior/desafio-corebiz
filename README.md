@@ -28,7 +28,7 @@ Antes de começar, você deve ter instalado na sua máquina as seguintes ferrame
   $ npm install
   
   # Execute a aplicação
-  $ npm start
+  $ npm run start
   
   # A aplicação estará disponível através do seu browser no localhost:8080
 ```
