@@ -6,6 +6,7 @@ const GlobalStyle = createGlobalStyle`
         padding: 0;
         box-sizing: border-box;
         text-decoration: none;
+        transition: all 0.3s;
     }
 
     ol, ul {
