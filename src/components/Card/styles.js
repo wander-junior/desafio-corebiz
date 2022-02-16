@@ -18,16 +18,9 @@ export const OffLabel = styled.p`
     color: #FFFFFF;
 `;
 
-export const BuyButton = styled.button`
-    padding: 8px 27px;
-    margin: 0 auto;
-    background: #000000;
-    color: #FFFFFF;
-    margin-top: 8px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+export const ButtonWrapper = styled.div`
     opacity: 0;
+    margin: 18px auto 0 auto;
 `;
 
 export const CardWrapper = styled.div`
@@ -38,7 +31,7 @@ export const CardWrapper = styled.div`
         background: ${({theme}) => theme.colors.gray};
     }
 
-    &:hover ${BuyButton} {
+    &:hover ${ButtonWrapper} {
         opacity: 1;
     }
 `;
