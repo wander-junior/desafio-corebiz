@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import { CardWrapper, ProductInfo, ProductTitle, StarsWrapper, FormerPrice, CurrentPrice, InstallmentsOptions, BuyButton, OffFlag, OffLabel } from './styles';
 
@@ -6,9 +6,11 @@ import filledStarIcon from '../../assets/img/filledStarIcon.svg'
 import emptyStarIcon from '../../assets/img/emptyStarIcon.svg'
 
 import { priceFormatter } from '../../utils/priceFormatter';
+import QuantityContext from '../../contexts/QuantityContext';
 
 export default function Card({product}) {
     const { productName, stars, imageUrl, price, listPrice, installments } = product;
+    const [totalItems, setTotalItems] = useContext(QuantityContext);
 
     return (
         <CardWrapper>
@@ -54,7 +56,7 @@ export default function Card({product}) {
                         ou em {installments[0].quantity} de {priceFormatter(installments[0].value)}
                     </InstallmentsOptions>
                 : ""}
-                <BuyButton>COMPRAR</BuyButton>
+                <BuyButton onClick={() => setTotalItems(totalItems + 1)}>COMPRAR</BuyButton>
             </ProductInfo>
         </CardWrapper>
     )

@@ -12,7 +12,7 @@ import mobileMenuIcon from '../../assets/img/mobileMenuIcon.svg'
 import QuantityContext from '../../contexts/QuantityContext';
 
 export default function Header() {
-    const [totalItems, _] = useContext(QuantityContext);
+    const [totalItems] = useContext(QuantityContext);
 
     const handleSubmit = ((event) => event.preventDefault());
 

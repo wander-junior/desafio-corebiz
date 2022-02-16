@@ -23,7 +23,7 @@ export default function Shelf() {
         <ShelfWrapper>
             <ShelfTitle>Mais vendidos</ShelfTitle>
             {productList.map(product => {
-                return <Card product={product} />
+                return <Card product={product} key={product.productId}/>
             })}
         </ShelfWrapper>
     )
