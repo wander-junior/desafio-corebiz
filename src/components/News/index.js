@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { NewsWrapper, NewsTitle, NewsForm, NewsInput, InputWrapper } from './styles';
 
 import Button from '../Button'
+import axios from 'axios';
 
 export default function News() {
     const [name, setName] = useState("");
@@ -30,7 +31,13 @@ export default function News() {
             return
         }
         setIsNameValid(true);
-        setIsEmailValid(true)
+        setIsEmailValid(true);
+
+        axios.post('https://corebiz-test.herokuapp.com/api/v1/newsletter', {
+            "email": email,
+            "name": name
+        })
+
     })
 
     return (
