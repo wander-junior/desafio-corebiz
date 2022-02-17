@@ -2,8 +2,8 @@ import React from 'react'
 
 import { ButtonStyle } from './styles';
 
-export default function Button({label}) {
+export default function Button({label, disabled}) {
   return (
-    <ButtonStyle>{label}</ButtonStyle>
+    <ButtonStyle disabled={disabled}>{label}</ButtonStyle>
   )
 }

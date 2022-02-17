@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { NewsWrapper, NewsTitle, NewsForm, NewsInput, InputWrapper } from './styles';
 
@@ -10,9 +10,11 @@ export default function News() {
     const [isNameValid, setIsNameValid] = useState(true);
     const [email, setEmail] = useState("");
     const [isEmailValid, setIsEmailValid] = useState(true);
+    const [isButtonDisabled, setIsButtonDisabled] = useState(false);
     
     const warningNameMessage = "Preencha com seu nome completo";
     const warningEmailMessage = "Preencha com um e-mail válido";
+    const emailRegex = /\S+@\S+\.\S+/;
 
     const handleNameChange = ((event) => {
         setName(event.target.value);
@@ -24,10 +26,10 @@ export default function News() {
 
     const handleSubmit = ((event) => {
         event.preventDefault();
-        const emailRegex = /\S+@\S+\.\S+/;
         if (!email.match(emailRegex) || (name === ""))  {
             if (name === "") setIsNameValid(false);
             if (!email.match(emailRegex)) setIsEmailValid(false);
+            setIsButtonDisabled(true);
             return
         }
         setIsNameValid(true);
@@ -39,6 +41,12 @@ export default function News() {
         })
 
     })
+
+    useEffect(() => {
+        if (email.match(emailRegex) && (name !== "")) {
+            setIsButtonDisabled(false);
+        }
+    }, [name, email])
 
     return (
         <NewsWrapper>
@@ -62,7 +70,7 @@ export default function News() {
                         isValid={isEmailValid}
                     />
                 </InputWrapper>
-                <Button label={"Eu quero!"} />
+                <Button label={"Eu quero!"} disabled={isButtonDisabled}/>
             </NewsForm>
         </NewsWrapper>
     )
