@@ -1,10 +1,12 @@
 import styled from "styled-components";
-import bannerMask from "../../assets/img/bannerMask.png";
 
 export const BannerWrapper = styled.div`
     position: relative;
     display: flex;
-    width: 100%;
+    visibility: ${props => props.isActive ? 'visible' : 'hidden'};
+    opacity: ${props => props.isActive ? '1' : '0'};
+    width: ${props => props.isActive ? '100%' : '0'};
+    transition: width 0s, opacity 0.3s;
 `;
 
 export const BannerInfo = styled.div`

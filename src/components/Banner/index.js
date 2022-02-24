@@ -5,9 +5,9 @@ import { BannerWrapper, BannerInfo, BannerImg, BannerText, BannerTitle, BannerSu
 import bannerImage from '../../assets/img/bannerImage.png';
 import bannerMask from '../../assets/img/bannerMask.png';
 
-export default function Banner() {
+export default function Banner({isActive}) {
   return (
-    <BannerWrapper>
+    <BannerWrapper isActive={isActive}>
         <BannerInfo>
 
             <BannerMask src={bannerMask}/>
