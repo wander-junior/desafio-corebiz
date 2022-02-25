@@ -30,14 +30,14 @@ export default function Card({product}) {
                 <ProductTitle>{productName}</ProductTitle>
                 <StarsWrapper>
                     {
-                        [...Array(stars)].map(() => {
-                            return <img src={filledStarIcon}/>
+                        [...Array(stars)].map((_, index) => {
+                            return <img src={filledStarIcon} key={index}/>
                         })
                     }
                     {
                         (5 - stars) > 0 ?
-                            [...Array(5 - stars)].map(() => {
-                                return <img src={emptyStarIcon}/>
+                            [...Array(5 - stars)].map((_, index) => {
+                                return <img src={emptyStarIcon} key={index}/>
                             })
                         : ""
                     }
