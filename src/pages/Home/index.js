@@ -4,6 +4,7 @@ import Header from "../../components/Header";
 import BannerSlider from "../../components/BannerSlider";
 import Shelf from '../../components/Shelf';
 import News from '../../components/News';
+import Footer from '../../components/Footer';
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <BannerSlider />
       <Shelf />
       <News />
+      <Footer />
     </>
   )
 }
