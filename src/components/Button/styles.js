@@ -8,4 +8,8 @@ export const ButtonStyle = styled.button`
     cursor: pointer;
     padding: 8px 27px;
     width: fit-content;
+
+    &:disabled {
+        background-color: #333333;
+    }
 `;
