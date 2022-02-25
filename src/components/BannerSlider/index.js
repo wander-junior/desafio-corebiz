@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Banner from '../Banner';
 
-import { SliderWrapper } from './styles';
+import { SliderWrapper, IndicatorList, IndicatorItem } from './styles';
 
 export default function BannerSlider() {
   const [currentBanner, setCurrentBanner] = useState(0);
@@ -12,15 +12,13 @@ export default function BannerSlider() {
       {[...Array(lenght)].map((_, index) => {
         return <Banner key={index} isActive={currentBanner === index}/>
       })}
-      <ul>
+      <IndicatorList>
         {[...Array(lenght)].map((_, index) => {
           return (
-            <li key={index} onClick={() => setCurrentBanner(index)}>
-              {index}
-            </li>
+            <IndicatorItem key={index} onClick={() => setCurrentBanner(index)} isActive={currentBanner === index} />
           )
         })}
-      </ul>
+      </IndicatorList>
     </SliderWrapper>
   )
 }
